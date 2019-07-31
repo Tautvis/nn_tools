@@ -23,6 +23,8 @@ def receptive_field(kernel_sizes: Union[int, List[int], np.ndarray],
             raise ValueError('At least one of the inputs has to be a list or n_layers specified.')
     if isinstance(kernel_sizes, int):
         kernel_sizes = [kernel_sizes] * n_layers
+    if isinstance(dilations, int):
+        dilations = [dilations] * n_layers
     if isinstance(strides, int):
         strides = [strides] * n_layers
     assert len(kernel_sizes) == len(dilations) == len(strides)
